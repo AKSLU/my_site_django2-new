@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Список встреч</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px 0 40px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #333;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #222;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .card {
+            width: 360px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+            padding: 10px 0;
+            color: #fff;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 15px;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        li:empty,
+        li:contains("Нет встреч") {
+            color: #ffd700;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .section {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section h2,
+        .section h3 {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    {% include "nav.html" %}
+
+    <div class="section">
+        <h1>Ближайшие встречи</h1>
+
+        <h3>Сегодня</h3>
+        <div class="card">
+            <ul>
+                {% for meet in today_meets %}
+                <li>{{ meet.title }} — {{ meet.date }}</li>
+                {% empty %}
+                <li>Нет встреч на сегодня</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <h3>На этой неделе</h3>
+        <div class="card">
+            <ul>
+                {% for meet in week_meets %}
+                <li>{{ meet.title }} — {{ meet.date }}</li>
+                {% empty %}
+                <li>Нет встреч на этой неделе</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <h3>В этом месяце</h3>
+        <div class="card">
+            <ul>
+                {% for meet in month_meets %}
+                <li>{{ meet.title }} — {{ meet.date }}</li>
+                {% empty %}
+                <li>Нет встреч в этом месяце</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

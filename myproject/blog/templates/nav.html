@@ -1,0 +1,85 @@
+<style>
+    nav {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 12px;
+        padding: 15px 25px;
+        margin-top: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        color: #fff;
+        font-weight: 500;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .logo {
+        color: #ffffff;
+        font-weight: 800;
+        font-size: 1.15rem;
+        text-decoration: none;
+        padding: 6px 12px;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.06);
+        transition: background 0.2s ease, transform 0.08s ease;
+        margin-right: auto;
+    }
+
+    .logo:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        transform: translateY(-1px);
+    }
+
+    nav span {
+        color: #ffffff;
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    nav a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        background-color: rgba(255, 255, 255, 0.05);
+        transition: background 0.3s ease;
+    }
+
+    nav a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    hr {
+        border: none;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.3);
+        margin: 20px 0;
+        width: 100%;
+        max-width: 900px;
+    }
+
+    @media (max-width: 560px) {
+        .logo {
+            flex-basis: 100%;
+            margin-right: 0;
+        }
+    }
+</style>
+
+<nav>
+    <a class="logo" href="/">Органайзер</a>
+
+    <span>Добавить:</span>
+    <a href="/api/create_client">Клиента</a>
+    <a href="/api/create_meet">Встречу</a>
+    <a href="/api/create_note">Заметку</a>
+
+    <span>Сохранение:</span>
+    <a href="/clients/">Клиенты</a>
+    <a href="/meets/">Встречи</a>
+    <a href="/notes/">Заметки</a>
+    <a href="/meets/upcoming/">Ближайшие встречи</a>
+</nav>
+<hr>

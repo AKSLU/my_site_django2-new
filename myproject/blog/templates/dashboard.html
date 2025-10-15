@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Органайзер</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .stats {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 20px 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            color: #fff;
+            list-style: none;
+            font-size: 16px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .stats li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    {% include "nav.html" %}
+
+
+    <h1>Органайзер</h1>
+
+    <ul class="stats">
+        <li>Всего клиентов: {{ clients }}</li>
+        <li>Встреч сегодня: {{ meets_today }}</li>
+        <li>Всего заметок: {{ total_notes }}</li>
+    </ul>
+
+</body>
+
+</html>
